@@ -1,12 +1,25 @@
+var path = require('path');
+
+
+
 module.exports = {
 
-    entry: "./src/app/app.js",
+    context: path.resolve('src'),
+
+
+    entry: "./app/app.js",
 
 
     output: {
-        filename: "./dist/app.js"
+        path: path.resolve('dist'),
+        publicPath: '/app',
+        filename: "bundle.js"
     },
 
+
+    devServer: {
+        contentBase: 'public'
+    },
 
     module: {
 
