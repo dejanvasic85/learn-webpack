@@ -1,9 +1,9 @@
 import login from './login';
+import ko from 'knockout';
+import Person from './person';
 
-const person = {
-    name : 'Foo Bar'
-};
+const person = new Person('Foo Bario');
 
-console.log(login(person.name));
+console.log(login(person.firstName()));
 
-//ko.applyBindings(document.getElementById('app'), vm);
+ko.applyBindings(person, document.getElementById('app'));
