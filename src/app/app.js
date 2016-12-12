@@ -1,7 +1,7 @@
 import login from './login';
 import ko from 'knockout';
 import Person from './person';
-import '../styles/app.css';
+import '../styles/app.scss';
 
 const person = new Person('Foo Bario');
 
