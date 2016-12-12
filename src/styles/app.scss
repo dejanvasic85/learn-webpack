@@ -1,9 +1,13 @@
 html {
-    font-family: Arial;
+  font-family: Arial;
+}
+
+body {
+  background: linear-gradient(to top, #333, #fff);
 }
 
 h1 {
-    padding: 15px;
+  padding: 15px;
 
-    border-bottom: 1px solid #333;
+  border-bottom: 1px solid #333;
 }

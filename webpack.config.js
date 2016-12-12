@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('shared.js');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
@@ -9,16 +9,20 @@ module.exports = {
 
 
     entry: {
-        app : './app.js'
+        app: './app.js'
     },
 
 
     output: {
         path: path.resolve('dist'),
-        publicPath: '/app',
+        publicPath: '/assets',
         filename: "bundle.js"
     },
 
+
+    plugins: [
+        new ExtractTextPlugin("styles.css")
+    ],
 
     devServer: {
         contentBase: 'public'
@@ -26,13 +30,13 @@ module.exports = {
 
     module: {
 
-        preLoaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'jshint-loader'
-            }
-        ],
+        // preLoaders: [
+        //     {
+        //         test: /\.js$/,
+        //         exclude: /node_modules/,
+        //         loader: 'jshint-loader'
+        //     }
+        // ],
 
 
         loaders: [
@@ -45,19 +49,19 @@ module.exports = {
             {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                loader: 'style-loader!css-loader' // first run through css then the style loader
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader') // first run through css then the style loader
             },
 
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                loader: 'style-loader!css-loader!sass-loader' // first run through css then the style loader
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!sass-loader') // first run through css then the style loader
             }
         ]
     },
 
-    resolve : {
-        extensions : ['', '.js']
+    resolve: {
+        extensions: ['', '.js']
     }
 
 };
