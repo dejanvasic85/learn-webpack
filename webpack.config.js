@@ -56,6 +56,12 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!sass-loader') // first run through css then the style loader
+            },
+
+            {
+                test: /\.(png|jpg)$/,
+                exclude: /node_modules/,
+                loader: 'url-loader?limit=10000' // Limit the size (kb)
             }
         ]
     },
