@@ -1,10 +1,10 @@
 How to build:
 
-- npm install
-- npm install webpack -g
-- npm install webpack-dev-server -g
-- webpack-dev-server
+```
+npm install
+npm install webpack -g
+npm install webpack-dev-server -g
+webpack-dev-server --hot --open
+```
 
-
-You can then open the browser to http://localhost:8080/
-
+You should see your default browser open the website at http://localhost:8080/
