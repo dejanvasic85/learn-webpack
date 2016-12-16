@@ -9,14 +9,15 @@ module.exports = {
 
 
     entry: {
-        app: './app.js'
+        koApp: './koApp.js',
+        reactApp: './reactApp.js'
     },
 
 
     output: {
         path: path.resolve('dist'),
         publicPath: '/assets',
-        filename: "bundle.js"
+        filename: "[name].bundle.js"
     },
 
 
